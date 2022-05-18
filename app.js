@@ -16,12 +16,13 @@ const startAgain = document.getElementById("start-again");  //ok
 let count = 0;
 let flag=false;
 
-buttons.forEach(element => element.addEventListener("click", addSign)); 
+buttons.forEach(element => element.addEventListener("click", addSign, )); 
 
 
 function addSign(e){
     if (e.target.innerHTML !== ""){
         alert("questa cella è già stata selezionata!");
+        count=count-1;
     }
     if (count%2===0 || count===0){
         turnOf.innerHTML = "primo giocatore";
@@ -31,21 +32,15 @@ function addSign(e){
         e.target.innerHTML = "X";
     }
     checkWin();
-    count+=1;
-
-    // if (flag == true){
-        // count=0;
-        // buttons.forEach((element) => element.innerHTML = "");
-        // turnOf.innerHTML = "" ;
-    // }
+    count+=1; 
+    
+    ifNoneWin(e);
 }
     
-function checkWin(e){
-        // console.log(btnUno.innerHTML, btnDue.innerHTML, btnTre.innerHTML)
-        // console.log(btnUno.innerHTML== btnDue.innerHTML== btnTre.innerHTML)
-        // console.log(winnerMessage.innerHTML)
+function checkWin(){
+
     if((btnUno.innerHTML===btnDue.innerHTML && btnDue.innerHTML===btnTre.innerHTML) && (btnUno.innerHTML==="X" || btnUno.innerHTML==="O")){
-        alert("Il " + turnOf.innerHTML + " ha vinto!! Resetta la partita per giocare di nuovo!");
+        alert("Il " + turnOf.innerHTML + " ha vinto!! Gioca di nuovo!");
         flag=true;
         // winnerMessage.innerHTML = "il " + turnOf.innerHTML + " ha vinto!! Clicca su 'start again' per giocare di nuovo!";
         resetGame();
@@ -105,9 +100,15 @@ function resetGame(e){
     console.log(buttons)
      buttons.forEach((element) => element.innerHTML = "");
      turnOf.innerHTML = "" ;
-     winnerMessage.innerHTML = "chi vinvcerà?";
+     winnerMessage.innerHTML = "chi vincerà?";
     
 }
 
 
 
+   function ifNoneWin(e){
+       if (buttons.every((element)=> element != "")){
+          console.log("hii");
+           alert( "pareggio! Gioca di nuovo!");
+       }
+   }
