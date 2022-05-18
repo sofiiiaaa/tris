@@ -16,7 +16,7 @@ const startAgain = document.getElementById("start-again");  //ok
 let count = 0;
 let flag=false;
 
-buttons.forEach(element => element.addEventListener("click", addSign, )); 
+buttons.forEach(element => element.addEventListener("click", addSign)); 
 console.log(buttons)
 
 function addSign(e){
@@ -106,16 +106,19 @@ function resetGame(e){
 
 
 
-//    function ifNoneWin(){
-//        if (buttons.fotEach((element)=> element.target.innerHTML !== "")){
-//           console.log("hii");
-//            alert( "pareggio! Gioca di nuovo!");
-//        }
-//    }
+   function ifNoneWin(){
+       const pareggio= Array.from(buttons).every((element)=> element.innerHTML !== "");
+           if (pareggio){
+               console.log("hii");
+                alert( "pareggio! Gioca di nuovo!");
+                resetGame();
+           }
+    }
 
-//    function ifNoneWin(e){
-//        if (!(e !== "")){
-//           console.log("hii");
-//            alert( "pareggio! Gioca di nuovo!");
-//        }
-//    }
+    //oppure:
+    // function ifNoneWin(){
+    //     if (count===9){
+    //         alert("pareggio! Gioca di nuovo!")
+    //     }
+    // }
+
