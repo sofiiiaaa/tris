@@ -17,7 +17,7 @@ let count = 0;
 let flag=false;
 
 buttons.forEach(element => element.addEventListener("click", addSign, )); 
-
+console.log(buttons)
 
 function addSign(e){
     if (e.target.innerHTML !== ""){
@@ -31,10 +31,10 @@ function addSign(e){
         turnOf.innerHTML = "secondo giocatore";
         e.target.innerHTML = "X";
     }
-    checkWin();
     count+=1; 
+    checkWin();
     
-    ifNoneWin();
+    ifNoneWin(e);
 }
     
 function checkWin(){
@@ -106,9 +106,16 @@ function resetGame(e){
 
 
 
-   function ifNoneWin(){
-       if (buttons.every((element)=> element.target.innerHTML !== "")){
-          console.log("hii");
-           alert( "pareggio! Gioca di nuovo!");
-       }
-   }
+//    function ifNoneWin(){
+//        if (buttons.fotEach((element)=> element.target.innerHTML !== "")){
+//           console.log("hii");
+//            alert( "pareggio! Gioca di nuovo!");
+//        }
+//    }
+
+//    function ifNoneWin(e){
+//        if (!(e !== "")){
+//           console.log("hii");
+//            alert( "pareggio! Gioca di nuovo!");
+//        }
+//    }
