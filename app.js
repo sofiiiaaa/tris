@@ -34,7 +34,7 @@ function addSign(e){
     checkWin();
     count+=1; 
     
-    ifNoneWin(e);
+    ifNoneWin();
 }
     
 function checkWin(){
@@ -106,8 +106,8 @@ function resetGame(e){
 
 
 
-   function ifNoneWin(e){
-       if (buttons.every((element)=> element != "")){
+   function ifNoneWin(){
+       if (buttons.every((element)=> element.target.innerHTML !== "")){
           console.log("hii");
            alert( "pareggio! Gioca di nuovo!");
        }
