@@ -11,8 +11,6 @@
 button#btn-1,
 button#btn-4,
 button#btn-7{
-    border-right:solid 2px  black;
-    border-bottom:solid 2px  black;
     border-top: none;
     border-left: none;
 }
@@ -20,8 +18,6 @@ button#btn-7{
 button#btn-2,
 button#btn-5,
 button#btn-8{
-    /* border-right:solid 2px  black; */
-    border-bottom:solid 2px  black;
     border-top: none;
     border-right: none;
     border-left: none;
@@ -32,11 +28,11 @@ button#btn-6,
 button#btn-9{
     border-top:none;
     border-right:none;
-    border-left:solid 2px  black;
-    border-bottom:solid 2px  black;
 }
 
 button#start-again{
     margin-top:50px;
     background-color: green;
 }
+
+
